@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <meta charset="utf-8" />
+   <title>JS-ADV. Lesson 1. Task 1 </title>
+</head>
+<body>
+    <button onClick="ChangeColor(event)" data-color="red" data-width="500px">RED</button>
+    <button onClick="ChangeColor(event)" data-color="blue">BLUE</button>
+    <button onClick="ChangeColor(event)" data-color="green">GREEN</button>
+
+    <script>
+
+      function ChangeColor(event){
+        console.log(event.target);
+        document.body.style.background = event.target.dataset.color;
+      }
+
+    </script>
+</body>
+</html>

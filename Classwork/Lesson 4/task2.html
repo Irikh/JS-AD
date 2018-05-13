@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Form work1</title>
+
+</head>
+<style>
+    .result{
+        width: 300px;
+        height: 100px;
+        background: black;
+        box-sizing: border-box;
+        padding: 20px;
+        margin: 10px;
+        border-radius: 10px;
+    }
+    #MyValidateForm{
+        width: 50px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #MyValidateForm input{
+        margin-bottom: 10px;
+        box-sizing: border-box;
+        padding: 10px 20px;
+    }
+</style>
+<body>
+  <div class="Templating">
+    <form>
+      <input type="range" id="myWidth" min="100" max="500" step="10"/>
+      <input type="color" id="myColor" min="10" max="500" step="10"/>
+      <input type="number" id="myHeigth" min="100" max="500" step="10"/>
+      <input type="number" id="myRadius" min="10" max="500" step="10"/>
+      <input type="number" id="myMargin" min="20" max="500" step="10"/>
+
+    </form>
+
+    <div class="TemplatingResult">
+      <div id="result" class="result"></div>
+    </div>
+  </div>
+
+  <script>
+      window.addEventListener("load", function () {
+          var myWidth = document.getElementById('myWidth');
+              myWidth.addEventListener('input', function (event) {
+              result.style.width = event.target.value + 'px';
+                 });
+          var myHeigth = document.getElementById('myHeigth');
+              myHeigth.addEventListener('input', function (event) {
+              result.style.height = event.target.value + 'px';
+                 });
+          var myColor = document.getElementById('myColor');
+              myColor.addEventListener('input', function(event){
+              result.style.backgroundColor = event.target.value;
+                 });
+          var myRadius = document.getElementById('myRadius');
+              myRadius.addEventListener('input', function() {
+              result.style.borderRadius = event.target.value + 'px';
+                 });
+          var myMargin = document.getElementById('myMargin');
+              myMargin.addEventListener('input', function(event) {
+                  result.style.margin = event.target.value + 'px';
+                 });
+      })
+
+
+      /*
+        Задание:
+          Сделать шаблонизатор элемента по:
+          Ширине input type=range
+          Цвету  input type=color
+          Высоте input type=number
+          Скругление углов input type=number
+          Margin input type=number
+
+        Свойсвта: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Properties_Reference
+
+        Бонус:
+          + Сделать выборку цвета из рандомных 20 цветов которые выбираются из появившегося блока :
+          https://s3.envato.com/files/230412754/screenshots/1.png
+          За заготовку для рандома цвета использовать функцию из первых занятий.
+
+      */
+
+
+  </script>
+</body>
+</html>

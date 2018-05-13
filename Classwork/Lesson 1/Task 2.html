@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <meta charset="utf-8" />
+   <title>JS-ADV. Lesson 1. Task 2 </title>
+</head>
+<body>
+  <div class="wrap" id="app">
+
+    <header>
+      <button>RED</button>
+      <button>BLUE</button>
+      <button>GREEN</button>
+    </header>
+
+    <h2 id="user">Users:</h2>
+    <div class="container">
+      <ul id="list">
+        <li id="JackLi">Jack</li>
+        <li class="show test">Marlyn</li>
+        <li name="Dexter" id="test" class="show test">Dexter</li>
+      </ul>
+    </div>
+    <input id="TestAttribute"/>
+    <div id="createArea" name="block"></div>
+
+  </div>
+
+  <script>
+     var getById = document.getElementById('test');
+     var getByCss = document.querySelectorAll('button');
+     var ClosestItems = document.getElementById('createArea');
+    console.log( 'closest', ClosestItems.closest('.wrap'));
+
+     var getByTeg = document.getElementsByTagName('li');
+     var getByClass = document.getElementsByClassName('test');
+      console.log( getById, getByCss, getByTeg, getByClass);
+
+    
+  </script>
+</body>
+</html>

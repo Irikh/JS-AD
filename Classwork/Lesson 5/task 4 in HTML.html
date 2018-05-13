@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <title>Шифр Цезаря</title>
+
+</head>
+<body>
+<br>
+<div align="center">
+    <strong>Введите сюда Ваш текст:</strong><br>
+    <br>
+    <input id="text1" type="text" size="100">
+    <br>
+    <p>Выберите ключ шифра</p>
+    <input id="z" type="number" min="0" value="1" step="1">
+    <br>
+    <strong>Выберите действие:</strong><br>
+    <br>
+    <input onclick="caesar_code(0,+z.value)" type="button" value="Шифровать">
+    <input onclick="caesar_code(1,+z.value)" type="button" value="Дешифровать">
+    <br>
+    <br>
+    <b>Результат:</b>
+    <br>
+
+    <input id="text2" type="text" size="80">
+</div>
+<script type="text/javascript">
+    function caesar_code(a, d) {
+        var c = document.getElementById("text1"),
+            g = document.getElementById("text2"),
+            b = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ",
+            e = "",
+            d = d % b.length || 0,
+            c = c.value.toUpperCase(),
+            f = b.substr(d) + b.substr(0, d);
+        1 == a && (a = b, b = f, f = a);
+        for (i = 0; i < c.length; i++) a = b.lastIndexOf(c.charAt(i)), a = f.charAt(a) || c.charAt(i), e += a;
+        g.value = e
+    };
+</script>
+<!--Задание "Шифр цезаря":-->
+
+<!--https://uk.wikipedia.org/wiki/%D0%A8%D0%B8%D1%84%D1%80_%D0%A6%D0%B5%D0%B7%D0%B0%D1%80%D1%8F-->
+
+<!--Написать функцию, которая будет принимать в себя слово и количество-->
+<!--симовлов на которые нужно сделать сдвиг внутри.-->
+
+<!--Написать функцию дешефратор которая вернет слово в изначальный вид.-->
+
+<!--Сделать статичные функции используя bind и метод частичного-->
+<!--вызова функции (каррирования), которая будет создавать и дешефровать-->
+<!--слова с статично забитым шагом от одного до 5.-->
+
+<!--Например:-->
+<!--encryptCesar('Word', 3);-->
+<!--encryptCesar1(...)-->
+<!--...-->
+<!--encryptCesar5(...)-->
+
+<!--decryptCesar1('Sdwq', 3);-->
+<!--decryptCesar1(...)-->
+<!--...-->
+<!--decryptCesar5(...)-->
+</body>
+</html>
+
+
+
+

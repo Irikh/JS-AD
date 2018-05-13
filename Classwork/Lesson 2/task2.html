@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>ITEA-JS ADVANCED - LESSON 2: CLASSWORK 2</title>
+  <link rel="stylesheet" href="css/style.min.css" />
+</head>
+<body>
+  <div class="wrap">
+    <style>
+      
+    </style>
+    <div class="testBlock hover">
+      <button class="iButton" id="mouseHover">Наведи</button>
+      <ul id="hoverResult" class="resultBlock">
+        <li class="red">Hovered!</li>
+        <li class="blue">Hovered!</li>
+        <li class="orange">Hovered!</li>
+        <li class="red">Hovered!</li>
+        <li class="red">Hovered!</li>
+      </ul>
+    </div>
+
+    <div class="testBlock click">
+      <button class="iButton" id="mouseClick">Нажми правой кнопкой мышки</button>
+      <div id="clickResult" class="resultBlock one two three four five six"></div>
+    </div>
+
+    <div class="testBlock context">
+      <button class="iButton" id="mouseContext">Вызови контекстное меню</button>
+      <div id="contextResult" class="resultBlock"></div>
+    </div>
+
+    <div class="testBlock keyboard">
+      <button class="iButton" id="keyboardButton">Нажми на клавиатуре</button>
+      <div id="keyboardResult" class="resultBlock"></div>
+    </div>
+  </div>
+
+  <script>
+    
+    mouseHover.onmouseenter = function(){
+    
+      console.log('hover');
+    }
+    mouseClick.onclick = function(){
+      var a = document.getElementById('list');
+      console.log('deletedElement', deletedElement);
+       console.log('click');
+    }
+    mouseContext.oncontextmenu = function(e){
+      e.preventDefault();
+      console.log('context');
+    }
+    keyboardButton.onkeydown = function(){
+      console.log('keyboard');
+    }
+  </script>
+</body>
+</html>

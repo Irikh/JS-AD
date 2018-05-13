@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Forms Task 1</title>
+  <style>
+    #MyValidateForm{
+      width: 350px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #MyValidateForm input{
+      margin-bottom: 10px;
+      box-sizing: border-box;
+      padding: 10px 20px;
+    }
+    .error{
+      border: 1px solid red;
+    }
+    .OK{
+      border: 1px solid green;
+    }
+  </style>
+</head>
+<body>
+
+  <form  id="MyValidateForm">
+    <input type="text" name='login' placeholder="Ваш логин" />
+    <input type="password" name='pas1' placeholder="Ваш пароль" />
+    <input type="password" name='pas2' placeholder="Повторите пароль" />
+    <label for="agree">
+      <span>Вы согласны с лицензионым соглашением.</span>
+      <input type="checkbox" id="agree" />
+    </label>
+    <input type="submit" id="submit" value="Отправить"/>
+  </form>
+
+  <script>
+
+
+    var input = document.querySelectorAll('input'),
+        submit = document.getElementById('submit'),
+        form = document.getElementById('MyValidateForm'),
+        agree = document.getElementById('agree');
+    form.onsubmit=function validate() {
+        return false;
+    };
+    window.onload=function () {
+        submit.disabled=true;
+        agree.addEventListener('input',function () {
+            if (agree.checked === true) {
+                submit.disabled = false;
+            }
+                else{
+                    submit.disabled = true;
+                }
+        });
+    };
+    function checkForm() {
+        input.forEach(function (item) {
+            if (item.value ===''){
+                item.classList.remove('OK');
+                item.classList.add('error');
+            }
+            else {
+                item.classList.remove('error');
+                item.classList.add('OK');
+            }
+        });
+        console.log (input[0]);
+        checkPas(input)
+    }
+    function checkPas(a) {
+        if (a[1].value !== a[2].value || a[1].value === '' || a[2].value === '') {
+            a[1].classList.remove('OK');
+            a[2].classList.remove('OK');
+            a[1].classList.add('error');
+            a[2].classList.add('error');
+        }
+        else {
+            a[1].classList.remove('error');
+            a[2].classList.remove('error');
+            a[1].classList.add('OK');
+            a[2].classList.add('OK');
+        }
+    }
+    submit.addEventListener('click',checkForm);
+
+      /*
+        Задание:
+          Сделать валидацию формы:
+          1. Логин / Пароль не может быть пустым
+          2. Пароли должны совпадть
+          3. Пока не стоит что юзер согласен с лиц. соглашением - кнопка отправки не активна
+
+          + бонус - то поле, которое не прошло валидацию подсвечивать красным.
+                  - которое прошло - подсвечивать зеленым.
+      */
+
+  </script>
+</body>
+</html>
